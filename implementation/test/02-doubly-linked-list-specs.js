@@ -23,7 +23,7 @@ describe('DoublyLinkedNode Constructor', () => {
         node = new DoublyLinkedNode('A');
         expect(node).to.have.property('value');
         expect(node).to.have.property('next');
-        expect(node).to.have.property('prev');  
+        expect(node).to.have.property('prev');
     });
 });
 
@@ -170,6 +170,7 @@ describe('DoublyLinkedList Methods', () => {
             list.addToTail('B');
             list.addToTail('C');
 
+
             const tail = list.tail;
             const middle = list.tail.prev;
             const head = list.head;
@@ -212,7 +213,7 @@ describe('DoublyLinkedList Methods', () => {
             expect(list.peekAtTail()).to.equal('C');
         });
     });
-    
+
     context('removeFromTail()', () => {
         it('Should return undefined for an empty list', () => {
             const result = list.removeFromTail();

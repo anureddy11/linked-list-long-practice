@@ -68,9 +68,7 @@ describe('SinglyLinkedList', () => {
         describe('addToHead', () => {
             it('Should reassign the head pointer when new nodes are added to the head', () => {
                 expect(linkedList.head).to.equal(null);
-                console.log(linkedList.head)
                 linkedList.addToHead('C');
-                console.log(linkedList.head)
                 expect(linkedList.head).to.eql({ value: 'C', next: null });
                 linkedList.addToHead('B');
                 expect(linkedList.head).to.eql({ value: 'B', next: { value: 'C', next: null }});

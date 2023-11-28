@@ -20,8 +20,8 @@ class DoublyLinkedList {
         // Add node of val to head of linked list
         let newNode = new DoublyLinkedNode(val);
 
-        if (this.length >= 0) {
-            this.head.previous = newNode;
+        if (this.length > 0) {
+            this.head.prev = newNode;
             newNode.next = this.head;
             this.head = newNode;
         } else {
@@ -37,7 +37,19 @@ class DoublyLinkedList {
     addToTail(val) {
         // Add node of val to tail of linked list
 
-        // Your code here 
+        // Your code here
+        let newNode = new DoublyLinkedNode(val);
+        if (!this.tail) {
+            this.head = newNode;
+            this.tail = newNode;
+        } else {
+            this.tail.next=newNode
+            newNode.prev = this.tail
+            this.tail=newNode
+        }
+        this.length++
+
+
 
         // Write your hypothesis on the time complexity of this method here
     }
@@ -45,7 +57,22 @@ class DoublyLinkedList {
     removeFromHead() {
         // Remove node at head
 
-        // Your code here 
+        // Your code here
+        if(!this.head){
+            return undefined
+        }
+        let removedNode = this.head;
+        this.head = this.head.next;
+
+        if (this.head) {
+            this.head.prev = null;
+        } else {
+            this.tail = null; // If there's no next node, update the tail
+        }
+
+        this.length--;
+        return removedNode.value
+
 
         // Write your hypothesis on the time complexity of this method here
     }
@@ -53,7 +80,26 @@ class DoublyLinkedList {
     removeFromTail() {
         // Remove node at tail
 
-        // Your code here 
+        // Your code here
+        if (!this.tail) {
+            return undefined; // List is empty, no node to remove
+        }
+
+        let removedNode = this.tail;
+
+        if (this.head === this.tail) {
+            // Only one node in the list
+            this.head = null;
+            this.tail = null;
+        } else {
+            this.tail = this.tail.prev;
+            this.tail.next = null;
+        }
+
+        this.length--;
+
+        return removedNode.value;
+
 
         // Write your hypothesis on the time complexity of this method here
     }
@@ -61,7 +107,13 @@ class DoublyLinkedList {
     peekAtHead() {
         // Return value of head node
 
-        // Your code here 
+        // Your code here
+        if(!this.head){
+            return undefined
+        }
+        else{
+            return this.head.value
+        }
 
         // Write your hypothesis on the time complexity of this method here
     }
@@ -69,7 +121,13 @@ class DoublyLinkedList {
     peekAtTail() {
         // Return value of tail node
 
-        // Your code here 
+        // Your code here
+        if(!this.tail){
+            return undefined
+        }
+        else{
+            return this.tail.value
+        }
 
         // Write your hypothesis on the time complexity of this method here
     }
