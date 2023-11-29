@@ -56,6 +56,7 @@ describe('Part 2: Linked Lists', () => {
     list.addToTail(14);
     list.addToTail(53);
 
+    console.log()
     expect(list.findNthNode(3).value).to.equal(14);
   });
 
@@ -131,13 +132,11 @@ describe('Part 3: Doubly Linked Lists', () => {
     dll.addToTail(1);
     dll.addToTail(2);
     dll.addToTail(3);
-
     expect(dll.findMid().value).to.equal(2);
 
     dll.addToTail(4);
     dll.addToTail(5);
     dll.addToTail(6);
-
     expect(dll.findMid().value).to.equal(3);
   });
 
