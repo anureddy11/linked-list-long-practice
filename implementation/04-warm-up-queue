@@ -1,4 +1,11 @@
-const { SinglyLinkedNode } = require("./01-singly-linked-list");
+
+class SinglyLinkedNode {
+    constructor(val) {
+        this.value = val;
+        this.next = null;
+    }
+}
+
 
 class Queue {
 
@@ -54,9 +61,51 @@ class Queue {
         // Write your hypothesis on the time complexity of this method here
     }
 
+    print() {
+        // Print out the linked list
+
+        // Your code here
+        if(!this.head){
+            return undefined
+        }
+        else{
+            let temp = this.head
+            while(temp){
+                console.log(temp.value)
+                temp=temp.next
+            }
+        }
+
+
+    }
+    find(n){
+         if(!this.head){
+            return
+        }
+        else{
+            let temp = this.head
+            while(temp){
+                if(temp.value===n){
+                    return temp
+                }
+                temp=temp.next
+            }
+
+
+        }
+
+    }
+    
+
+
 }
 
-module.exports = {
-    Queue,
-    SinglyLinkedNode
-}
+let warmQueue = new Queue
+
+warmQueue.enqueue(2)
+warmQueue.enqueue(3)
+warmQueue.enqueue(10)
+warmQueue.enqueue(4)
+
+// warmQueue.print()
+console.log(warmQueue.find(4))
